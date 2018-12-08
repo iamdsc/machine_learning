@@ -21,7 +21,8 @@ sc.fit(X_train)
 X_train_std = sc.transform(X_train)
 X_test_std = sc.transform(X_test)
 
-svm=SVC(kernel='linear', C=1.0, random_state=1)
+#svm=SVC(kernel='linear', C=1.0, random_state=1)
+svm=SVC(kernel='rbf', random_state=1, gamma=0.2, C=1.0)
 svm.fit(X_train_std, y_train)
 
 def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
