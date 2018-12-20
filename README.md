@@ -5,4 +5,4 @@
 
 * ### [Classification](machine_learning/classification)
 * ### [Data Preprocessing](machine_learning/data_preprocess)
-* ### [Dimensionality Reduction](machine_learning/dimensionality_reduction
+* ### [Dimensionality Reduction](machine_learning/dimensionality_reduction)
