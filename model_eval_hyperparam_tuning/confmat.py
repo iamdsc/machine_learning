@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
 
 # Loading the data
 df=pd.read_csv('wdbc.data',header=None)
@@ -32,3 +32,7 @@ for i in range(confmat.shape[0]):
 plt.xlabel('predicted label')
 plt.ylabel('true label')
 plt.show()
+
+print('Precision: %.3f'%precision_score(y_true=y_test, y_pred=y_pred))
+print('Recall: %.3f'%recall_score(y_true=y_test, y_pred=y_pred))
+print('F1 score: %.3f'%f1_score(y_true=y_test, y_pred=y_pred))
