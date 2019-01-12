@@ -4,7 +4,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.externals import six
 from sklearn.pipeline import _name_estimators, Pipeline
 from sklearn import datasets
-from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
@@ -137,3 +137,18 @@ for idx, clf, tt in zip(product([0, 1], [0, 1]), all_clf, clf_labels):
 plt.text(-3.5, -4.5, s='Sepal width [standardized]', ha='center', va='center', fontsize=12)
 plt.text(-12.5, 4.5, s='Petal length [standardized]', ha='center', va='center', fontsize=12, rotation=90)
 plt.show()
+
+#print(mv_clf.get_params())
+
+# Tuning the inverse regularization parameter C of the logistic regression
+# and the decision tree depth via a grid search
+
+params={'decisiontreeclassifier__max_depth' : [1, 2], 'pipeline-1__clf__C':[0.001, 0.1, 100.0]}
+grid=GridSearchCV(estimator=mv_clf, param_grid=params, cv=10, scoring='roc_auc')
+grid.fit(X_train, y_train)
+
+for params, mean_score, scores in grid.grid_scores_:
+    print('%0.3f+/-%0.2f %r'%(mean_score, scores.std()/2, params))
+
+print('Best parameters: %s' % grid.best_params_)
+print('Accuracy: %.2f' % grid.best_score_)
