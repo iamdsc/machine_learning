@@ -85,3 +85,9 @@ plt.show()
 num_rooms_std=sc_x.transform(np.array([5.0]).reshape(1,-1))
 price_std=lr.predict(num_rooms_std)
 print('Price in $1000s for 5 rooms: %.3f' % sc_y.inverse_transform(price_std))
+
+
+
+
+
+
