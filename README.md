@@ -9,3 +9,4 @@
 * ### [Model Evaluation and Hyperparameter Tuning](https://github.com/iamdsc/machine_learning/tree/master/model_eval_hyperparam_tuning)
 * ### [Ensemble Learning](https://github.com/iamdsc/machine_learning/tree/master/ensemble_learning)
 * ### [Sentiment Analysis](https://github.com/iamdsc/machine_learning/tree/master/sentiment_analysis)
+* ### [Regression Analysis](https://github.com/iamdsc/machine_learning/tree/master/regression_analysis)
